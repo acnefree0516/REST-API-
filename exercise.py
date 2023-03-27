@@ -9,8 +9,8 @@ app = Flask(__name__)
 @app.route("/cpuinfo")
 def get_cpu_info():
     cpu_info = {
-        'cpu_count': psutil.cpu_count(logical=False),
-        'cpu_brand': cpuinfo.get_cpu_info()['brand_raw']
+        'nr_cpus': psutil.cpu_count(logical=False),
+        'model_name': cpuinfo.get_cpu_info()['brand_raw']
     }
     return json.dumps(cpu_info)
 
